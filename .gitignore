@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Generated/runtime state — recreated automatically on first run
+data/*.db
+data/*.json
+data/*.log
+reports/*.pptx

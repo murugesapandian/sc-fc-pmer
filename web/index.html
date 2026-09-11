@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SC-FC-PMER — Executive Report Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-icon">◆</span>
+        <div class="brand-text">
+          <span class="brand-mark">SC-FC-PMER</span>
+          <span class="brand-sub">Project Management Executive Report</span>
+        </div>
+      </div>
+      <span id="status-badge" class="badge badge-neutral">Checking…</span>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- Program at a glance -->
+    <section id="glance" class="card glance-card" hidden>
+      <div class="glance-head">
+        <div class="glance-status">
+          <span id="glance-dot" class="status-dot"></span>
+          <div>
+            <div id="glance-status-word" class="glance-status-word">—</div>
+            <div id="glance-phase" class="muted">—</div>
+          </div>
+        </div>
+        <div class="glance-updated muted">
+          Snapshot as of <span id="glance-time">—</span>
+        </div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <div class="stat-value" id="stat-days">—</div>
+          <div class="stat-label">days to go-live</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-value" id="stat-pct">—</div>
+          <div class="stat-label">tasks complete</div>
+          <div class="stat-bar"><div id="stat-pct-bar" class="stat-bar-fill"></div></div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-value" id="stat-raid">—</div>
+          <div class="stat-label">open RAID items</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-value" id="stat-budget">—</div>
+          <div class="stat-label">budget variance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Generate action -->
+    <section class="card action-card">
+      <div class="action-head">
+        <div>
+          <h1>Generate the executive report</h1>
+          <p class="muted">
+            <code>Greenfield_SCM_GoLive_Tracking_Playbook.xlsx</code>
+            <span class="arrow">→</span>
+            <code>Greenfield_DC_Monthly_Leadership_ReportOut.pptx</code>
+          </p>
+        </div>
+      </div>
+
+      <div id="last-report-info" class="last-report-info muted">Loading status…</div>
+
+      <div class="actions">
+        <button id="generate-btn" class="btn btn-primary" disabled>
+          <span class="btn-icon">✦</span>
+          <span class="btn-label">Generate report</span>
+        </button>
+        <button id="force-btn" class="btn btn-link" title="Bypasses the change check, but still compares the result to the last report — it won't create a duplicate if the content truly hasn't changed">
+          Regenerate anyway
+        </button>
+      </div>
+      <div id="action-message" class="action-message" hidden></div>
+    </section>
+
+    <!-- History -->
+    <section class="card">
+      <div class="section-header">
+        <h2>Report history</h2>
+        <button id="refresh-btn" class="btn btn-ghost" title="Refresh">
+          <span class="refresh-icon">⟳</span> Refresh
+        </button>
+      </div>
+      <div id="reports-list" class="reports-list">
+        <div class="empty-state muted">Loading…</div>
+      </div>
+    </section>
+
+    <footer class="footnote">
+      Reports are drafted automatically from the tracking playbook. Budget figures and leadership
+      decisions are PM-maintained inputs — always verify a report manually before sending it to executives.
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
